@@ -21,8 +21,6 @@ class PhotoController extends Controller
 
     public function show(Request $request, Photo $photo): View
     {
-        $photo->loadMissing(['ratings', 'comments']);
-
         return view('guest.pages.photo', compact('photo'));
     }
 
