@@ -11,7 +11,7 @@
 - PHP >=8.1
 
 ## Configuration
-- Configure your DB connection innside the .env file located in the root directory of the project
+- Configure your DB connection inside the .env file located in the root directory of the project
 
 ## Installation and serving
 - composer install
