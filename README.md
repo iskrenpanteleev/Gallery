@@ -8,8 +8,10 @@
 </p>
 
 ## Requirements
-- PHP 8.1
+- PHP >=8.1
 
 ## Application serving
+- Configure your DB connection in .env in the root directory
+- composer install
 - php artisan migrate --seed
 - php artisan serve
