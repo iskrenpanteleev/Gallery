@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function index(Request $request): View|RedirectResponse
     {
         if (Auth::check()) {
-            return redirect()->route('admin.gallery.index');
+            return redirect()->route('admin.photo.index');
         }
 
         return view('admin.pages.login');
@@ -24,7 +24,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt($credentials = $request->validated())) {
             session()->regenerate();
-            return redirect()->route('admin.gallery.index');
+            return redirect()->route('admin.photo.index');
         }
 
         return back()->withErrors([
