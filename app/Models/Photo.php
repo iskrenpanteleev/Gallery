@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Enums\RatingEnum;
 use App\Http\Requests\Admin\PhotoUploadRequest;
-use App\Http\Requests\Guest\PhotoReactRequest;
+use App\Http\Requests\Guest\PhotoRateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -52,7 +52,7 @@ class Photo extends Model implements HasMedia
         return $model;
     }
 
-    public function rate(PhotoReactRequest $request): Rating
+    public function rate(PhotoRateRequest $request): Rating
     {
         return $this->ratings()->create([
             'type'  => $request->rating,

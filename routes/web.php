@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(PhotoController::class)->as('photos.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/show/{photo}', 'show')->name('show');
-    Route::post('/react/{photo}', 'react')->name('react');
+    Route::resource('/', PhotoController::class)->only(['index', 'show'])
+        ->parameter('', 'photo');
+    Route::post('/rate/{photo}', 'rate')->name('react');
 });
 
 Route::controller(CommentController::class)->as('comments.')->group(function () {
@@ -34,12 +34,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::get('/login', 'index')->name('index');
     });
 
-    Route::controller(AdminPhotoUploadController::class)->as('upload.')->group(function () {
-        Route::get('/upload', 'index')->name('index');
-        Route::post('/upload', 'store')->name('store');
-    });
+    Route::resource('upload', AdminPhotoUploadController::class)->only(['index', 'store']);
 
-    Route::controller(AdminPhotoGalleryController::class)->as('gallery.')->group(function () {
-        Route::resource('/', AdminPhotoGalleryController::class)->parameter('', 'photo');
-    });
+    Route::resource('photo', AdminPhotoGalleryController::class)->only(['index', 'destroy']);
 });

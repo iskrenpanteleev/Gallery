@@ -6,7 +6,7 @@ use App\Enums\RatingEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
-class PhotoReactRequest extends FormRequest
+class PhotoRateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

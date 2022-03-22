@@ -9,7 +9,7 @@
                         <img class="card-img-top" src="{{ $item->url }}" alt="Photo">
                         <div class="card-body">
                             <p class="card-text">Posted at {{ $item->user->created_at->format('d F, Y') }} by {{ $item->user->username }}</p>
-                            <form action="{{ route('admin.gallery.destroy', ['photo' => $item->id]) }}" method="POST">
+                            <form action="{{ route('admin.photo.destroy', ['photo' => $item->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

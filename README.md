@@ -10,8 +10,10 @@
 ## Requirements
 - PHP >=8.1
 
-## Application serving
-- Configure your DB connection in the .env located in the root directory of the project
+## Configuration
+- Configure your DB connection innside the .env file located in the root directory of the project
+
+## Installation and serving
 - composer install
 - php artisan migrate --seed
 - php artisan storage:link

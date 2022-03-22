@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Enums\RatingEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Guest\PhotoReactRequest;
+use App\Http\Requests\Guest\PhotoRateRequest;
 use App\Models\Photo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +24,7 @@ class PhotoController extends Controller
         return view('guest.pages.photo', compact('photo'));
     }
 
-    public function react(PhotoReactRequest $request, Photo $photo): RedirectResponse
+    public function rate(PhotoRateRequest $request, Photo $photo): RedirectResponse
     {
         $photo->rate($request);
 
